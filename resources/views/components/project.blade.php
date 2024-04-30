@@ -12,19 +12,19 @@
         @foreach($projects as $project)
         <div class="mb-12 lg:mb-0 flex flex-col">
           <div class="bg-blue-100 flex flex-col items-center justify-center relative rounded-lg">
-            <img src="{{ asset('storage/' . $project->logo) }}" class=" w-full h-60 rounded-lg" />
+            <img src="{{ asset('storage/' . $project->logo) }}" class="w-full h-60 rounded-lg shadow-xl" />
           </div>
-          <h5 class="mb-2 text-lg font-bold">{{ $project->name}}</h5>
+          <h5 class="mb-2 text-center uppercase mt-4 text-lg font-bold">{{ $project->name}}</h5>
           <div class="flex items-center justify-center gap-2 pt-2">
             <button type="button"
                 class="inline-block px-6 py-2.5 border-2 border-cyan-500 font-medium text-xs leading-tight uppercase rounded-xl hover:text-white hover:bg-cyan-500 focus:outline-none focus:ring-0">
-                <a href="{{ $project->liveLink }}">
+                <a href="{{ Str::startsWith($project->liveLink, ['http://', 'https://']) ? $project->liveLink : 'http://' . $project->liveLink }}" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-arrow-up-right-from-square fa-lg mr-1"></i>Live Demo
                 </a>
             </button>
             <button type="button"
                 class="inline-block px-6 py-2.5 border-2 border-cyan-500 font-medium text-xs leading-tight uppercase rounded-xl hover:text-white hover:bg-cyan-500 focus:outline-none focus:ring-0">
-                <a href="{{ $project->sourceCode }}">
+                <a href="{{ Str::startsWith($project->sourceCode, ['http://', 'https://']) ? $project->sourceCode : 'http://' . $project->sourceCode }}" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-github fa-lg mr-1"></i>Source Code
                 </a>
             </button>

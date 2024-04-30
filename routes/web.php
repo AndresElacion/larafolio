@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ComponentsController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SkillController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\UserProjectController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::get('/', [ComponentsController::class, 'index'], function () {
 });
 
 Route::resource('/project', ProjectController::class);
+Route::resource('/skills', SkillController::class);
 
 // Route::get('/all/project', [ComponentsController::class, 'index'])->name('homepage');
 

@@ -32,8 +32,8 @@ class ProjectController extends Controller
     {
         $formFields = $request->validate([
             'name' => 'required',
-            'liveLink' => 'required',
-            'sourceCode' => 'required',
+            'liveLink' => 'required|url',
+            'sourceCode' => 'required|url',
         ]);
 
         if($request->hasFile('logo')) {
@@ -68,8 +68,8 @@ class ProjectController extends Controller
     {
         $formFields = $request->validate([
             'name' => 'string',
-            'liveLink' => 'string',
-            'sourceCode' => 'string',
+            'liveLink' => 'string|url',
+            'sourceCode' => 'string|url',
         ]);
 
         if($request->hasFile('logo')){
